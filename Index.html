@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derashport | Global Trade Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo">Derashport<span>.</span></div>
+        <ul class="nav-menu">
+            <li class="active">Dashboard</li>
+            <li>Shipments</li>
+            <li>Customs Docs</li>
+            <li>Duty Calc</li>
+        </ul>
+        <div class="user-profile">
+            <div class="avatar">GB</div>
+            <span>Global Broker</span>
+        </div>
+    </nav>
+
+    <main class="content">
+        <header class="top-bar">
+            <h1>Trade Command Center</h1>
+            <div class="search-box">
+                <input type="text" id="shipmentSearch" placeholder="Search HTS Code or Bill of Lading...">
+            </div>
+        </header>
+
+        <section class="grid-stats">
+            <div class="card stat">
+                <span class="label">In Transit</span>
+                <h2 id="transit-count">12</h2>
+                <div class="progress-bar"><div class="fill" style="width: 75%"></div></div>
+            </div>
+            <div class="card stat">
+                <span class="label">Customs Holds</span>
+                <h2 class="alert-text">03</h2>
+                <p>Action Required</p>
+            </div>
+            <div class="card stat">
+                <span class="label">Total Duty Paid (MTD)</span>
+                <h2>$45,200</h2>
+            </div>
+        </section>
+
+        <section class="card calculator-section">
+            <h3>Quick Duty Estimator</h3>
+            <div class="calc-inputs">
+                <input type="number" id="cargoValue" placeholder="Cargo Value ($)">
+                <select id="category">
+                    <option value="0.05">Electronics (5%)</option>
+                    <option value="0.12">Textiles (12%)</option>
+                    <option value="0.20">Luxury Goods (20%)</option>
+                </select>
+                <button onclick="calculateDuty()" class="btn-action">Estimate</button>
+            </div>
+            <p id="calcResult">Result: --</p>
+        </section>
+
+        <section class="card table-card">
+            <h3>Live Cargo Stream</h3>
+            <table id="tradeTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Origin</th>
+                        <th>Port of Entry</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#DP-2024-01</td>
+                        <td>Shanghai</td>
+                        <td>Djibouti Port</td>
+                        <td><span class="badge clearing">Clearing</span></td>
+                    </tr>
+                    <tr>
+                        <td>#DP-2024-02</td>
+                        <td>Istanbul</td>
+                        <td>Mombasa</td>
+                        <td><span class="badge arrived">Arrived</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
